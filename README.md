@@ -1,5 +1,7 @@
 # Code Snip Save
 
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fafsnippet%2Fafsnippet.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fafsnippet%2Fafsnippet?ref=badge_shield)
+
 www.codesnipsave.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
@@ -19,7 +21,7 @@ firebase login
 firebase deploy
 ```
 ## TODO
-- fix search ui and algolia
+- fix search ui and Algolia
 - auto gen the dates
 - implement notify service
 - add likes: https://angularfirebase.com/lessons/facebook-inspired-reactions-from-scratch-with-angular-and-firebase/
