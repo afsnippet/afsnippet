@@ -6,12 +6,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAlY0J0ejovJgEbb3oXPp1Rwkavb_PB-gk',
-    authDomain: 'code-snippet-a5d85.firebaseapp.com',
-    databaseURL: 'https://code-snippet-a5d85.firebaseio.com',
-    projectId: 'code-snippet-a5d85',
-    storageBucket: 'code-snippet-a5d85.appspot.com',
-    messagingSenderId: '742402717313'
+    apiKey: "AIzaSyDyA34Id_t6V-DCaqGQOJehzLAa6IA0hlU",
+    authDomain: "af-snippet-dev.firebaseapp.com",
+    databaseURL: "https://af-snippet-dev.firebaseio.com",
+    projectId: "af-snippet-dev",
+    storageBucket: "af-snippet-dev.appspot.com",
+    messagingSenderId: "149976471361"
   },
 
   algolia: {
@@ -21,6 +21,6 @@ export const environment = {
     urlSync: false
   },
 
-  functionsURL: 'https://us-central1-stripe-elements.cloudfunctions.net',
-  stripePublishable: 'pk_test_jpC2OhzDEErN6uVk83a0nQ4I'
+  functionsURL: '',
+  stripePublishable: ''
 };
