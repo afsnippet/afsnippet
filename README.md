@@ -40,7 +40,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-[] Fix FOSSA noted licensing issue
+[] Fix FOSSA noted licensing issues
 [] Add Circle CI
 [] Fix search ui and Algolia
 [] Auto gen the dates
@@ -49,6 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [] Add liking to snippets
 [] Add pagination
 [] Add stripe payments?
+[] Prototype a UI/design app
 
 ### Notes
 

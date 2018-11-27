@@ -1,0 +1,7 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Code</span>
+  <ul class="justify-content-end">
+    <a class="my-2 my-sm-0" routerLink="/account">Account</a>
+    <a><button (click)="auth.signOut()" *ngIf="(auth.user | async)">Sign Out</button></a>
+  </ul>
+</nav>
