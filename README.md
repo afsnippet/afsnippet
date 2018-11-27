@@ -6,6 +6,14 @@ The project focus is on an educational code-snippet publishing website. It has b
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
+## Environments
+
+https://af-snippet-dev.firebaseapp.com
+Deploy to development using `firebase deploy --project af-snippet-dev`
+
+https://af-snippet-prod.firebaseapp.com
+Deploy to production using `firebase deploy --project af-snippet-prod`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
