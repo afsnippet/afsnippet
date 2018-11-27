@@ -50,7 +50,6 @@ export class AuthService {
   private oAuthLogin(provider: firebase.auth.AuthProvider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        console.log('credential', credential.user);
         this.notify.update('Welcome to Code Snip Save!!!', 'success');
         return this.updateUserData(credential.user);
       })

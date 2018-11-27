@@ -42,6 +42,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [] Fix FOSSA noted licensing issues
 [] Add commit zen to repo
+[] Fix or replace notify service
 [] Add Circle CI
 [] Fix search ui and Algolia
 [] Auto gen the dates
