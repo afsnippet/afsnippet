@@ -49,3 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [] Add liking to snippets
 [] Add pagination
 [] Add stripe payments?
+
+### Notes
+
++ We're using Font Awesome Pro. How to use Font Awesome: https://fontawesome.com/how-to-use/on-the-web/using-with/angular
