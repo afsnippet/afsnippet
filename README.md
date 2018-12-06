@@ -57,3 +57,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### Notes
 
 + We're using Font Awesome Pro. How to use Font Awesome: https://fontawesome.com/how-to-use/on-the-web/using-with/angular
+
+## Analysis
+
+[![](https://codescene.io/projects/3807/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/3807/jobs/latest-successful/results)
