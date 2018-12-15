@@ -29,6 +29,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AngularFireModule} from "@angular/fire";
 import {SearchComponent} from './search/search.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {SearchComponent} from './search/search.component';
     NavComponent,
     DashboardComponent,
     PageNotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

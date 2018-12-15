@@ -1,3 +1,5 @@
+This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
+
 ## Roles
 
 ### Maintainer(s)
@@ -12,8 +14,6 @@
 
 @farahbrunache
 @tptshoe
-
-This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 

@@ -1,6 +1,8 @@
 {
   "name": "af-snippet",
   "version": "0.0.1",
+  "description": "Educational code snippet publishing website.",
+  "author": "Farah Brunache",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -1,54 +1,71 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-
       <app-add-snippet></app-add-snippet>
-      <br>
-      <div *ngIf="items?.length > 0; else items">
-
+      <br />
+      <div *ngIf="items?.length > 0; else: noItems">
         <div *ngFor="let item of items" class="collection">
-          <p>{{item.snippetId}}</p>
-          <p>{{item.snippetText}}</p>
-          <p>{{item.snippetCreatedDate | date:'fullDate'}}</p>
+          <p>{{ item.snippetId }}</p>
+          <p>{{ item.snippetText }}</p>
+          <p>{{ item.snippetCreatedDate | date: 'fullDate' }}</p>
 
           <a>
             <span (click)="editSnippet($event, item)">
               <i class="fas fa-edit" color="accent"></i>
             </span>
-            <i *ngIf="editState && itemToEdit.snippetId == item.snippetId" (click)="clearState()"></i>
+            <i
+              *ngIf="editState && itemToEdit.snippetId == item.snippetId"
+              (click)="clearState()"
+            ></i>
           </a>
 
           <a>
             <span (click)="deleteSnippet($event, item)">
               <i class="fas fa-trash-alt" style="color:#FF0000;"></i>
             </span>
-            <i *ngIf="editState && itemToEdit.snippetId == item.snippetId" (click)="clearState()"></i>
+            <i
+              *ngIf="editState && itemToEdit.snippetId == item.snippetId"
+              (click)="clearState()"
+            ></i>
           </a>
           <div *ngIf="editState && itemToEdit.snippetId == item.snippetId">
             <form (ngSubmit)="updateSnippet(item)">
               <div class="row">
                 <div class="input-field col s6">
-                  <input type="text" [(ngModel)]="item.snippetText" name="Snippet Text">
+                  <input
+                    type="text"
+                    [(ngModel)]="item.snippetText"
+                    name="Snippet Text"
+                  />
                 </div>
                 <div class="input-field col s6">
-                  <input type="text" [(ngModel)]="item.snippetCreatedDate" name="Snippet Created Date">
+                  <input
+                    type="text"
+                    [(ngModel)]="item.snippetCreatedDate"
+                    name="Snippet Created Date"
+                  />
                 </div>
                 <div class="input-field col s6">
-                  <input type="submit" value="Update">
+                  <input type="submit" value="Update" />
                 </div>
               </div>
             </form>
           </div>
         </div>
 
-        <mat-paginator #paginator [length]="5" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+        <mat-paginator
+          #paginator
+          [length]="5"
+          [pageIndex]="0"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+        >
         </mat-paginator>
 
         <ng-template #noItems>
           <h3>There are no Snippets to list.</h3>
         </ng-template>
       </div>
-
     </div>
   </div>
 </div>
