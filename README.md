@@ -2,7 +2,14 @@
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fafsnippet%2Fafsnippet.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fafsnippet%2Fafsnippet?ref=badge_shield)
 
-af-snippet is on an educational code snippet publishing website that has 3 levels of complexity for each snippet.
+af-snippet is on an educational code snippet publishing website that has three levels of complexity for each snippet.
+
+This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
+
+We are currently working towards completing our MVP. To contribute read more [here](docs/CONTRIBUTING.md).
+
+Low-Fidelity Prototype:
+![alt text](docs/af-snippet-mvp-mockup-v1.png 'Low Fidelity Mock up of MVP')
 
 ## Code Analysis
 
