@@ -1,4 +1,8 @@
+# Contributing
+
 This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
+
+Anyone can submit a pull request to contribute. However repository access will be granted on a case-by-case basis. To be granted Contributor rights first step is to join AFPG uisng the link above.
 
 ## Roles
 
@@ -12,10 +16,16 @@ This project was created in collaboration with Angular Firebase Project Groups (
 
 ### Contributor(s)
 
+@charlesT100
 @farahbrunache
 @tptshoe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+## New Contributor Checklist
+
+[] Confirm sign up with AFPG
+[] Add to humans.txt file
+[] Add to dev Firebase account. Note only maintainers have access to the production instance
+[] Add to repoistory. Note only maintainers have access to the master branch
 
 ## Development server
 
@@ -40,12 +50,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## New Contributor Checklist
-
-[] Confirm sign up with AFPG
-[] Add to humans.txt file
-[] Add to dev Firebase account. Note only maintainers have access to prod instance.
 
 ## Environments
 

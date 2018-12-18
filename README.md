@@ -8,7 +8,7 @@ This project was created in collaboration with Angular Firebase Project Groups (
 
 We are currently working towards completing our MVP. To contribute read more [here](docs/CONTRIBUTING.md).
 
-Low-Fidelity Prototype:
+Prototype:
 ![alt text](docs/af-snippet-mvp-mockup-v1.png 'Low Fidelity Mock up of MVP')
 
 ## Code Analysis

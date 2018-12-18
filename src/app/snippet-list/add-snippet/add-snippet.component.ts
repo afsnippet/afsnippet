@@ -32,7 +32,7 @@ export class AddSnippetComponent {
   }
 
   onSubmit() {
-    console.log('this.uidService.getUid() ', this.uidService.getUid());
+    // console.log('this.uidService.getUid() ', this.uidService.getUid());
     if (this.item.snippetText) {
       this.item.userId = this.uidService.getUid();
       this.item.snippetId = this.snippetService.createSnippetId();

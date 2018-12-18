@@ -1,32 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-
-      <h2>
-        <strong>Add Snippet</strong>
-      </h2>
+      <h2><strong>Add Snippet</strong></h2>
 
       <form (ngSubmit)="onSubmit()" class="col s6">
-        <br>
+        <br />
         <label>Title</label>
-        <input [(ngModel)]="item.snippetTitle" name="Snippet Title">
-        <br>
+        <input [(ngModel)]="item.snippetTitle" name="Snippet Title" /> <br />
         <label>Language</label>
-        <input [(ngModel)]="item.snippetLanguage" name="Snippet Language">
-        <br>
-        <br>
-        <input [(ngModel)]="item.snippetText" name="Snippet Text" ace-editor [(text)]="text" [mode]="'sql'" [theme]="'eclipse'" [options]="options"
-          [readOnly]="false" [autoUpdateContent]="true" [durationBeforeCallback]="1000" (textChanged)="onChange($event)" style="min-height: 200px; width:100%; overflow: auto;">
-        <br>
+        <input [(ngModel)]="item.snippetLanguage" name="Snippet Language" />
+        <br />
+        <br />
+        <input
+          [(ngModel)]="item.snippetText"
+          name="Snippet Text"
+          ace-editor
+          [(text)]="text"
+          [mode]="'sql'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"
+        />
+        <br />
         <label>Date</label>
-        <input type="date" [(ngModel)]="item.snippetCreatedDate" name="Snippet Created Date">
-        <br>
+        <input
+          type="date"
+          [(ngModel)]="item.snippetCreatedDate"
+          name="Snippet Created Date"
+        />
+        <br />
         <label>Tags</label>
-        <input [(ngModel)]="item.snippetTags" name="Snippet Tags">
-        <br>
-        <input type="submit" value="Submit" class="btn">
+        <input [(ngModel)]="item.snippetTags" name="Snippet Tags" /> <br />
+        <input type="submit" value="Submit" class="btn" />
       </form>
-
     </div>
   </div>
 </div>
