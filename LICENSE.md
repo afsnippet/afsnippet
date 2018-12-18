@@ -8,6 +8,6 @@ For purposes of the foregoing, “Sell” means practicing any or all of the rig
 
 Software: af-snippet
 
-License: Apache 2.0 
+License: Commons Clause
 
 Licensor: Farah Brunache
