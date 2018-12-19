@@ -3,6 +3,17 @@
   "version": "0.0.1",
   "description": "Educational code snippet publishing website.",
   "author": "Farah Brunache",
+  "license": "Commons Clause",
+  "keywords": [
+    "angular",
+    "code",
+    "snippets",
+    "af-snippet",
+    "afpg",
+    "typescript",
+    "javascript",
+    "education"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

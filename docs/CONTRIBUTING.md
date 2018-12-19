@@ -1,9 +1,5 @@
 # Contributing
 
-This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
-
-Anyone can submit a pull request to contribute. However repository access will be granted on a case-by-case basis. To be granted Contributor rights first step is to join AFPG uisng the link above.
-
 ## Roles
 
 ### Maintainer(s)

@@ -4,11 +4,10 @@
 
 af-snippet is on an educational code snippet publishing website that has three levels of complexity for each snippet.
 
-This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: bit.ly/afpg-info.
+This project was created in collaboration with Angular Firebase Project Groups (AFPG). Join us: [bit.ly/afpg-info](bit.ly/afpg-info).
 
 We are currently working towards completing our MVP. To contribute read more [here](docs/CONTRIBUTING.md).
 
-Mock-up:
 ![alt text](docs/af-snippet-mvp-mockup-v2.png 'Low Fidelity Mock up of MVP')
 
 ## Code Analysis
