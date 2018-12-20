@@ -1,6 +1,6 @@
 ---
 name: User Story
-about: Create a user story for this project
+about: Template for repo maintainers to create a user story for this project
 ---
 
 <!-- The intended use of this template ("User Story") is for contributors with repo level access to create user stories that will be reflected in our product roadmap. It is intended to be detailed.
@@ -20,6 +20,24 @@ Versus the "Feature Request" template which is a general inquiry/request from th
 **Is your feature request related to a problem? Please describe.**
 
 <!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+**Describe the solution you'd like**
+
+<!-- A clear and concise description of what you want to happen. -->
+
+**Describe alternatives you've considered**
+
+<!-- A clear and concise description of any alternative solutions or features you've considered. -->
+
+**Dependent on the completion of another issue(s)**
+
+<!-- Example:
+- Issue #11
+
+Github will automatically link to the correct issue.
+ -->
+
+- Issue #
 
 **Additional context**
 
