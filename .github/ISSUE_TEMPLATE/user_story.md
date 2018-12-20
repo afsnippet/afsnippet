@@ -44,9 +44,10 @@ Github will automatically link to the correct issue.
 <!-- Optional: add any other context or screenshots about the feature request here. -->
 
 **Acceptance criteria:**
-Acceptance criteria complete stories and make it testable.
 
 <!--
+Acceptance criteria complete stories and make it testable.
+
 Make sure to cover the following:
 - [ ] Given : Creates a context
 - [ ] When : Some actions to be carried out by the user
@@ -58,6 +59,6 @@ Example:
 - [ ] AC02 : Given that I’m a user with an active account, when I log in on the website with a wrong email address, then I should see an error message displayed under the email field
 -->
 
-- [ ]
+- [ ] AC01 :
 - [ ]
 - [ ]
