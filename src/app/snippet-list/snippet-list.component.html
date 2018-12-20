@@ -3,7 +3,7 @@
     <div class="col-sm-8">
       <app-add-snippet></app-add-snippet>
       <br />
-      <div *ngIf="items?.length > 0; else: noItems">
+      <div *ngIf="items?.length > 0; else noItems">
         <div *ngFor="let item of items" class="collection">
           <p>{{ item.snippetId }}</p>
           <p>{{ item.snippetText }}</p>
@@ -32,11 +32,7 @@
             <form (ngSubmit)="updateSnippet(item)">
               <div class="row">
                 <div class="input-field col s6">
-                  <input
-                    type="text"
-                    [(ngModel)]="item.snippetText"
-                    name="Snippet Text"
-                  />
+                  <input type="text" [(ngModel)]="item.snippetText" name="Snippet Text" />
                 </div>
                 <div class="input-field col s6">
                   <input
@@ -45,9 +41,7 @@
                     name="Snippet Created Date"
                   />
                 </div>
-                <div class="input-field col s6">
-                  <input type="submit" value="Update" />
-                </div>
+                <div class="input-field col s6"><input type="submit" value="Update" /></div>
               </div>
             </form>
           </div>
@@ -62,9 +56,7 @@
         >
         </mat-paginator>
 
-        <ng-template #noItems>
-          <h3>There are no Snippets to list.</h3>
-        </ng-template>
+        <ng-template #noItems> <h3>There are no Snippets to list.</h3> </ng-template>
       </div>
     </div>
   </div>
