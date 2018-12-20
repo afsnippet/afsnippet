@@ -11,7 +11,8 @@ about: Suggest an update to a snippet
 - [ ] Snippet is incorrect/has a bug
 
 **Provide the code snippet.**
-In its entirety paste in the full code snippet that should be used instead.
+
+<!-- In its entirety paste in the full code snippet that should be used instead. -->
 
 ```
 
@@ -19,10 +20,13 @@ In its entirety paste in the full code snippet that should be used instead.
 ```
 
 **Why do we need this change?**
-Provide a clear and concise technical explanation of why this change is needed.
+
+<!-- Provide a clear and concise technical explanation of why this change is needed. -->
 
 **Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+
+<!-- A clear and concise description of any alternative solutions or features you've considered. -->
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+
+<!-- Optional: add any other context or screenshots about the feature request here. -->

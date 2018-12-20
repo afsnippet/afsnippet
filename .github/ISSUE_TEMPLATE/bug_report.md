@@ -8,7 +8,7 @@ about: Create a report to help us improve
 As a user I want to be able to ...
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+<!-- A clear and concise description of what the bug is. -->
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -18,10 +18,10 @@ Steps to reproduce the behavior:
 4. See error
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+<!-- A clear and concise description of what you expected to happen. -->
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+<!-- If applicable, add screenshots to help explain your problem. -->
 
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
@@ -40,4 +40,4 @@ Definition of Done
 - [ ] Commit your could using using "npx git-cz" or "npm run cz" instead of "git commit"
 
 **Additional context**
-Add any other context about the problem here.
+<!-- Optional: add any other context about the problem here. -->
