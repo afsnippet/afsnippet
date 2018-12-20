@@ -20,9 +20,9 @@ When : Some actions to be carried out by the user
 Then : The result that should be obtained
 
 Example:
-- [ ] AC_01 : Given that I’m a user with an active account, when I’m login on the website with my correct email address and password, then I should be logged in without any error
+- [ ] AC01 : Given that I’m a user with an active account, when I’m login on the website with my correct email address and password, then I should be logged in without any error
 
-- [ ] AC_02 : Given that I’m a user with an active account, when I log in on the website with a wrong email address, then I should see an error message displayed under the email field
+- [ ] AC02 : Given that I’m a user with an active account, when I log in on the website with a wrong email address, then I should see an error message displayed under the email field
 -->
 
 - [ ]
