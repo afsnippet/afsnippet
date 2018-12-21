@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -44,6 +48,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule,
+    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
