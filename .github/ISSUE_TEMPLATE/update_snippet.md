@@ -3,7 +3,7 @@ name: Update snippet request
 about: Suggest an update to a snippet
 ---
 
-**Paste in the URL of the snippet that should be update.**
+**Paste in the URL of the snippet that should be updated.**
 
 **Categorize your request.**
 
