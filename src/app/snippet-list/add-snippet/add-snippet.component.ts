@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 import { SnippetService } from '../snippet.service';
 
 import { Snippet } from '../snippet-data';
+import { Language } from './add-snippet.data';
 
 import { AuthService } from '../../core/auth.service';
 import { UidService } from '../uid-service';
-
 @Component({
   selector: 'app-add-snippet',
   templateUrl: './add-snippet.component.html',
   styleUrls: ['./add-snippet.component.css']
 })
-export class AddSnippetComponent implements OnInit {
-  myForm: FormGroup;
+export class AddSnippetComponent implements OnInit, AfterViewInit {
+  @ViewChild('editor') editor;
+  text: string = '';
 
-  text: string;
-  options: any = { maxLines: 1000, printMargin: false };
+  myForm: FormGroup;
 
   _date: any;
   item: Snippet | any = {};
@@ -62,9 +62,7 @@ export class AddSnippetComponent implements OnInit {
 
   addPhone() {
     const phone = this.fb.group({
-      area: [],
-      prefix: [],
-      line: []
+      area: []
     });
 
     this.phoneForms.push(phone);
@@ -72,5 +70,25 @@ export class AddSnippetComponent implements OnInit {
 
   deletePhone(i) {
     this.phoneForms.removeAt(i);
+  }
+
+  languages: Language[] = [
+    { value: 'js', viewValue: 'JavaScript' },
+    { value: 'c++', viewValue: 'C++' },
+    { value: 'ruby', viewValue: 'Ruby' }
+  ];
+
+  ngAfterViewInit() {
+    this.editor.setTheme('eclipse');
+
+    this.editor.getEditor().setOptions({
+      enableBasicAutocompletion: true
+    });
+
+    this.editor.getEditor().commands.addCommand({
+      name: 'showOtherCompletions',
+      bindKey: 'Ctrl-.',
+      exec: function(editor) {}
+    });
   }
 }

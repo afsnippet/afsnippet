@@ -2,27 +2,13 @@
   <div class="row">
     <div class="col-12">
       <h2><strong>Add Snippet</strong></h2>
-
+      <br />
       <!-- <form (ngSubmit)="onSubmit()" class="col s6">
         <br />
         <label>Title</label> <input [(ngModel)]="item.snippetTitle" name="Snippet Title" /> <br />
         <label>Language</label>
         <input [(ngModel)]="item.snippetLanguage" name="Snippet Language" /> <br />
         <br />
-        <input
-          [(ngModel)]="item.snippetText"
-          name="Snippet Text"
-          ace-editor
-          [(text)]="text"
-          [mode]="'sql'"
-          [theme]="'eclipse'"
-          [options]="options"
-          [readOnly]="false"
-          [autoUpdateContent]="true"
-          [durationBeforeCallback]="1000"
-          (textChanged)="onChange($event)"
-          style="min-height: 200px; width:100%; overflow: auto;"
-        />
         <br />
         <label>Date</label>
         <input type="date" [(ngModel)]="item.snippetCreatedDate" name="Snippet Created Date" />
@@ -32,33 +18,45 @@
       </form> -->
 
       <form [formGroup]="myForm">
-        Value: {{ myForm.value | json }}
-
-        <hr />
-
         <mat-form-field class="full">
-          <input matInput placeholder="email" formControlName="email" />
+          <input matInput placeholder="Type in Snippet Title" formControlName="email" />
         </mat-form-field>
+        <br />
+        <br />
 
-        <div formArrayName="phones">
-          <div *ngFor="let phone of phoneForms.controls; let i = index" [formGroupName]="i">
-            <mat-form-field class="xs">
-              <input matInput placeholder="area" formControlName="area" />
-            </mat-form-field>
+        <p>Beginner</p>
+        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input matInput placeholder="Stackblitz URL" formControlName="stackblitzBeginnerUrl" />
+        </mat-form-field>
+        <!-- https://stackblitz.com/edit/angular-czmxfp -->
+        <br />
+        <br />
 
-            <mat-form-field class="xs">
-              <input matInput placeholder="prefix" formControlName="prefix" />
-            </mat-form-field>
+        <p>Expert</p>
+        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input matInput placeholder="Stackblitz URL" formControlName="stackblitzExpertUrl" />
+        </mat-form-field>
+        <br />
+        <br />
 
-            <mat-form-field class="sm">
-              <input matInput placeholder="line" formControlName="line" />
-            </mat-form-field>
+        <p>Common Practice</p>
+        <ace-editor [(text)]="text" style="min-height:150px; min-width:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input
+            matInput
+            placeholder="Stackblitz URL"
+            formControlName="stackblitzCommonPracticeUrl"
+          />
+        </mat-form-field>
+        <br />
+        <br />
 
-            <button mat-raised-button color="warn" (click)="deletePhone()">Delete</button>
-          </div>
-        </div>
-
-        <button mat-raised-button color="primary" (click)="addPhone()">Add Phone Number</button>
+        <p>Related Resources</p>
       </form>
     </div>
   </div>

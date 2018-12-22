@@ -2,16 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AceEditorModule } from 'ng2-ace-editor';
 
 import { SnippetModule } from './snippet-list/snippet.module';
 import { SidebarModule } from './sidebar/sidebar.module';
@@ -33,7 +34,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AngularFireModule } from '@angular/fire';
 import { SearchComponent } from './search/search.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,19 +50,20 @@ import { AboutUsComponent } from './about-us/about-us.component';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
     MaterialModule,
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
     NgbModule,
     CoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
     SnippetModule,
     SidebarModule,
     AccountModule,
-    DashboardModule
+    DashboardModule,
+    AceEditorModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],

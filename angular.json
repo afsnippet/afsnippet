@@ -18,9 +18,17 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "../node_modules/ngx-monaco-editor/assets/monaco",
+                "output": "./assets/monaco/"
+              }
+            ],
             "styles": ["src/styles.css", "./node_modules/bootstrap/dist/css/bootstrap.min.css"],
-            "scripts": ["./node_modules/hammerjs/hammer.min.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {

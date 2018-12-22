@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-      <app-add-snippet></app-add-snippet>
-      <br />
       <div *ngIf="items?.length > 0; else noItems">
         <div *ngFor="let item of items" class="collection">
           <p>{{ item.snippetId }}</p>
