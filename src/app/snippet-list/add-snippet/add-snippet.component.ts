@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 import { SnippetService } from '../snippet.service';
@@ -13,7 +13,7 @@ import { UidService } from '../uid-service';
   templateUrl: './add-snippet.component.html',
   styleUrls: ['./add-snippet.component.css']
 })
-export class AddSnippetComponent implements OnInit, AfterViewInit {
+export class AddSnippetComponent implements OnInit {
   @ViewChild('editor') editor;
   text: string = '';
 
@@ -26,7 +26,7 @@ export class AddSnippetComponent implements OnInit, AfterViewInit {
     private snippetService: SnippetService,
     private auth: AuthService,
     private uidService: UidService,
-    private fb: FormBuilder
+    private formBuilder: FormBuilder
   ) {
     const userId = this.uidService.getUid();
   }
@@ -50,26 +50,13 @@ export class AddSnippetComponent implements OnInit, AfterViewInit {
   // }
 
   ngOnInit() {
-    this.myForm = this.fb.group({
-      email: '',
-      phones: this.fb.array([])
+    this.myForm = this.formBuilder.group({
+      snippetTitle: '',
+      stackblitzBeginnerUrl: '',
+      stackblitzExpertUrl: '',
+      stackblitzCommonPracticeUrl: '',
+      resources: this.formBuilder.array([])
     });
-  }
-
-  get phoneForms() {
-    return this.myForm.get('phones') as FormArray;
-  }
-
-  addPhone() {
-    const phone = this.fb.group({
-      area: []
-    });
-
-    this.phoneForms.push(phone);
-  }
-
-  deletePhone(i) {
-    this.phoneForms.removeAt(i);
   }
 
   languages: Language[] = [
@@ -77,18 +64,4 @@ export class AddSnippetComponent implements OnInit, AfterViewInit {
     { value: 'c++', viewValue: 'C++' },
     { value: 'ruby', viewValue: 'Ruby' }
   ];
-
-  ngAfterViewInit() {
-    this.editor.setTheme('eclipse');
-
-    this.editor.getEditor().setOptions({
-      enableBasicAutocompletion: true
-    });
-
-    this.editor.getEditor().commands.addCommand({
-      name: 'showOtherCompletions',
-      bindKey: 'Ctrl-.',
-      exec: function(editor) {}
-    });
-  }
 }

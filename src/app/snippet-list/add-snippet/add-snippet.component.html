@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h2><strong>Add Snippet</strong></h2>
+      <h2><strong>Add a Snippet Collection</strong></h2>
       <br />
       <!-- <form (ngSubmit)="onSubmit()" class="col s6">
         <br />
@@ -19,44 +19,112 @@
 
       <form [formGroup]="myForm">
         <mat-form-field class="full">
-          <input matInput placeholder="Type in Snippet Title" formControlName="email" />
-        </mat-form-field>
-        <br />
-        <br />
-
-        <p>Beginner</p>
-        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
-        <br />
-        <mat-form-field class="full">
-          <input matInput placeholder="Stackblitz URL" formControlName="stackblitzBeginnerUrl" />
-        </mat-form-field>
-        <!-- https://stackblitz.com/edit/angular-czmxfp -->
-        <br />
-        <br />
-
-        <p>Expert</p>
-        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
-        <br />
-        <mat-form-field class="full">
-          <input matInput placeholder="Stackblitz URL" formControlName="stackblitzExpertUrl" />
-        </mat-form-field>
-        <br />
-        <br />
-
-        <p>Common Practice</p>
-        <ace-editor [(text)]="text" style="min-height:150px; min-width:150px;"></ace-editor>
-        <br />
-        <mat-form-field class="full">
           <input
             matInput
-            placeholder="Stackblitz URL"
-            formControlName="stackblitzCommonPracticeUrl"
+            placeholder="Snippet Collection Title"
+            value="My Snippet Collection Title"
+            formControlName="snippetTitle"
+            style="min-width:500px;width:auto;"
           />
         </mat-form-field>
         <br />
         <br />
 
-        <p>Related Resources</p>
+        <mat-form-field>
+          <mat-select placeholder="Choose Language">
+            <mat-option *ngFor="let language of languages" [value]="language.value">
+              {{ language.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <p>Beginner Snippet</p>
+        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input
+            matInput
+            placeholder="Beginner Demo URL"
+            formControlName="stackblitzBeginnerUrl"
+            value="https://stackblitz.com/edit/angular-lirkte"
+            style="min-width:500px;width:auto;"
+          />
+        </mat-form-field>
+        <!-- https://stackblitz.com/edit/angular-czmxfp -->
+        <br />
+        <br />
+
+        <p>Expert Snippet</p>
+        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input
+            matInput
+            placeholder="Expert Demo URL"
+            formControlName="stackblitzExpertUrl"
+            value="https://stackblitz.com/edit/angular-lirkte"
+            style="min-width:500px;width:auto;"
+          />
+        </mat-form-field>
+        <br />
+        <br />
+
+        <p>Common Practice Snippet</p>
+        <ace-editor [(text)]="text" style="min-height:150px; min-width:150px;"></ace-editor>
+        <br />
+        <mat-form-field class="full">
+          <input
+            matInput
+            placeholder="Common Practice Demo URL"
+            formControlName="stackblitzCommonPracticeUrl"
+            value="https://stackblitz.com/edit/angular-lirkte"
+            style="min-width:500px;width:auto;"
+          />
+        </mat-form-field>
+        <br />
+        <br />
+
+        <h3>Related Resources</h3>
+
+        Value: {{ myForm.value | json }}
+
+        <hr />
+
+        <mat-form-field class="full">
+          <input matInput placeholder="email" formControlName="email" />
+        </mat-form-field>
+
+        <h4>Cell Phone</h4>
+
+        <div formGroupName="cellPhone">
+          <mat-form-field class="xs">
+            <input matInput placeholder="area" formControlName="area" />
+          </mat-form-field>
+
+          <mat-form-field class="xs">
+            <input matInput placeholder="prefix" formControlName="prefix" />
+          </mat-form-field>
+
+          <mat-form-field class="sm">
+            <input matInput placeholder="line" formControlName="line" />
+          </mat-form-field>
+        </div>
+
+        <h4>Home Phone</h4>
+
+        <div formGroupName="homePhone">
+          <mat-form-field class="xs">
+            <input matInput placeholder="area" formControlName="area" />
+          </mat-form-field>
+
+          <mat-form-field class="xs">
+            <input matInput placeholder="prefix" formControlName="prefix" />
+          </mat-form-field>
+
+          <mat-form-field class="sm">
+            <input matInput placeholder="line" formControlName="line" />
+          </mat-form-field>
+        </div>
       </form>
     </div>
   </div>

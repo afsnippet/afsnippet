@@ -14,6 +14,7 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
+  MatFormField,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -32,10 +33,11 @@ import {
   MatSnackBarModule,
   MatSortModule,
   MatTableModule,
-  MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule
+  MatTreeModule,
+  MatFormFieldModule,
+  MatTabsModule
 } from '@angular/material';
 
 @NgModule({
@@ -53,6 +55,7 @@ import {
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
+    MatFormField,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
@@ -71,10 +74,21 @@ import {
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatTabsModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -90,6 +104,7 @@ import {
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
+    MatFormField,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
@@ -108,10 +123,16 @@ import {
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatTabsModule
   ],
   providers: []
 })
