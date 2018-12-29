@@ -1,12 +1,13 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { Select2Module } from 'ng2-select2';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TagInputModule } from 'ngx-chips';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CoreModule } from '../core/core.module';
 import { AceEditorModule } from 'ng2-ace-editor';
 
@@ -26,6 +27,7 @@ import { MaterialModule } from '../material.module';
     Select2Module,
     ClipboardModule,
     TagInputModule,
+    AngularFireModule,
     AngularFirestoreModule.enablePersistence(),
     AceEditorModule
   ],

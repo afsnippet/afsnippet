@@ -13,7 +13,11 @@
       Form Data: {{ addSnippetForm.value | json }}
 
       <hr />
-      <form [formGroup]="addSnippetForm">
+      <form
+        [formGroup]="addSnippetForm"
+        [hidden]="success"
+        (ngSubmit)="submitAddSnippetCollectionForm()"
+      >
         <mat-form-field class="full">
           <input
             matInput
@@ -284,7 +288,14 @@
         <button mat-raised-button color="primary" (click)="addWrittenTutorial()">
           Add a Written Tutorial
         </button>
+
+        <br />
+        <br />
+        <button mat-button color="primary" type="submit" [disabled]="addSnippetForm.invalid">
+          Submit
+        </button>
       </form>
+      <div *ngIf="success" class="notification is-success">Yay! Your post is live.</div>
     </div>
   </div>
 </div>

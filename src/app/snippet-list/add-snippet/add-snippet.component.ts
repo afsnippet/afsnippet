@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { tap } from 'rxjs/operators';
 
 import { SnippetService } from '../snippet.service';
 
@@ -19,6 +21,9 @@ export class AddSnippetComponent implements OnInit {
 
   addSnippetForm: FormGroup;
 
+  loading = false;
+  success = false;
+
   _date: any;
   item: Snippet | any = {};
 
@@ -26,7 +31,8 @@ export class AddSnippetComponent implements OnInit {
     private snippetService: SnippetService,
     private auth: AuthService,
     private uidService: UidService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private angularFirestore: AngularFirestore
   ) {
     const userId = this.uidService.getUid();
   }
@@ -35,23 +41,9 @@ export class AddSnippetComponent implements OnInit {
     console.log('NEW CODE', code);
   }
 
-  // onSubmit() {
-  //   console.log('this.uidService.getUid() ', this.uidService.getUid());
-  //   if (this.item.snippetText) {
-  //     this.item.userId = this.uidService.getUid();
-  //     this.item.snippetId = this.snippetService.createSnippetId();
-  //     this.snippetService.addSnippet(this.item);
-  //     this.item.snippetTitle = this.item.snippetTitle;
-  //     this.item.snippetLanguage = this.item.snippetLanguage;
-  //     this.item.snippetText = this.item.snippetText;
-  //     this.item.snippetTags = this.item.snippetTags;
-  //     this.item.snippetCreatedDate = this._date;
-  //   }
-  // }
-
   ngOnInit() {
     this.addSnippetForm = this.formBuilder.group({
-      snippetTitle: '',
+      snippetTitle: ['', Validators.required],
       language: '',
       stackblitzBeginnerUrl: '',
       stackblitzExpertUrl: '',
@@ -64,6 +56,7 @@ export class AddSnippetComponent implements OnInit {
       videoTutorials: this.formBuilder.array([]),
       writtenTutorials: this.formBuilder.array([])
     });
+    this.preloadData();
   }
 
   languages: Language[] = [
@@ -183,5 +176,32 @@ export class AddSnippetComponent implements OnInit {
 
   deleteVersion(i) {
     this.versionForms.removeAt(i);
+  }
+
+  async submitAddSnippetCollectionForm() {
+    this.loading = true;
+
+    const formValue = this.addSnippetForm.value;
+
+    try {
+      await this.angularFirestore.collection('snippets').add(formValue);
+      this.success = true;
+    } catch (error) {
+      console.error(error);
+    }
+
+    this.loading = false;
+  }
+
+  preloadData() {
+    this.angularFirestore
+      .doc('snippets/')
+      .valueChanges()
+      .pipe(
+        tap(data => {
+          this.addSnippetForm.patchValue(data);
+        })
+      )
+      .subscribe();
   }
 }
