@@ -1,23 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h2><strong>Add a Snippet Collection</strong></h2>
       <br />
-      <!-- <form (ngSubmit)="onSubmit()" class="col s6">
-        <br />
-        <label>Title</label> <input [(ngModel)]="item.snippetTitle" name="Snippet Title" /> <br />
-        <label>Language</label>
-        <input [(ngModel)]="item.snippetLanguage" name="Snippet Language" /> <br />
-        <br />
-        <br />
-        <label>Date</label>
-        <input type="date" [(ngModel)]="item.snippetCreatedDate" name="Snippet Created Date" />
-        <br />
-        <label>Tags</label> <input [(ngModel)]="item.snippetTags" name="Snippet Tags" /> <br />
-        <input type="submit" value="Submit" class="btn" />
-      </form> -->
+      <h2><strong>Add a Snippet Collection</strong></h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam.
+      </p>
+      <br />
 
-      <form [formGroup]="myForm">
+      <h3>Snippet</h3>
+      Form Data: {{ addSnippetForm.value | json }}
+
+      <hr />
+      <form [formGroup]="addSnippetForm">
         <mat-form-field class="full">
           <input
             matInput
@@ -46,7 +42,7 @@
             matInput
             placeholder="Beginner Demo URL"
             formControlName="stackblitzBeginnerUrl"
-            value="https://stackblitz.com/edit/angular-lirkte"
+            value="i.e. https://stackblitz.com/edit/angular-lirkte"
             style="min-width:500px;width:auto;"
           />
         </mat-form-field>
@@ -62,7 +58,7 @@
             matInput
             placeholder="Expert Demo URL"
             formControlName="stackblitzExpertUrl"
-            value="https://stackblitz.com/edit/angular-lirkte"
+            value="i.e. https://stackblitz.com/edit/angular-lirkte"
             style="min-width:500px;width:auto;"
           />
         </mat-form-field>
@@ -77,54 +73,217 @@
             matInput
             placeholder="Common Practice Demo URL"
             formControlName="stackblitzCommonPracticeUrl"
-            value="https://stackblitz.com/edit/angular-lirkte"
+            value="i.e. https://stackblitz.com/edit/angular-lirkte"
             style="min-width:500px;width:auto;"
           />
         </mat-form-field>
         <br />
         <br />
 
-        <h3>Related Resources</h3>
-
-        Value: {{ myForm.value | json }}
-
+        <h3>Versioning</h3>
         <hr />
+        <p>
+          List all programming languages and frameworks including their specific version numbers
+          (please do not put "latest" as the verison number.).
+        </p>
+        <div formArrayName="versions">
+          <div *ngFor="let version of versionForms.controls; let i = index" [formGroupName]="i">
+            <mat-form-field class="xs">
+              <input
+                matInput
+                placeholder="Technology"
+                formControlName="technology"
+                value="i.e. Angular"
+              />
+            </mat-form-field>
 
-        <mat-form-field class="full">
-          <input matInput placeholder="email" formControlName="email" />
-        </mat-form-field>
-
-        <h4>Cell Phone</h4>
-
-        <div formGroupName="cellPhone">
-          <mat-form-field class="xs">
-            <input matInput placeholder="area" formControlName="area" />
-          </mat-form-field>
-
-          <mat-form-field class="xs">
-            <input matInput placeholder="prefix" formControlName="prefix" />
-          </mat-form-field>
-
-          <mat-form-field class="sm">
-            <input matInput placeholder="line" formControlName="line" />
-          </mat-form-field>
+            <mat-form-field class="xs">
+              <input matInput placeholder="Version" formControlName="version" value="i.e. 7.0.1" />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteVersion()">Delete</button>
+          </div>
         </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addVersion()">Add a Version</button>
+        <br />
+        <br />
 
-        <h4>Home Phone</h4>
-
-        <div formGroupName="homePhone">
-          <mat-form-field class="xs">
-            <input matInput placeholder="area" formControlName="area" />
-          </mat-form-field>
-
-          <mat-form-field class="xs">
-            <input matInput placeholder="prefix" formControlName="prefix" />
-          </mat-form-field>
-
-          <mat-form-field class="sm">
-            <input matInput placeholder="line" formControlName="line" />
-          </mat-form-field>
+        <h3>External Related Resources (Optional)</h3>
+        <hr />
+        <h5>Use Cases</h5>
+        <p>
+          A use case resource would be an article from an Airbnb employe on how the use "x" to
+          further their product.
+        </p>
+        <div formArrayName="useCases">
+          <div *ngFor="let useCase of useCaseForms.controls; let i = index" [formGroupName]="i">
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Use Case URL"
+                formControlName="UseCaseUrl"
+                value="i.e. https://medium.com/air-bnb/story"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteUseCase()">Delete</button>
+          </div>
         </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addUseCase()">Add a Use Case</button>
+        <br />
+        <br />
+        <h5>Common Errors</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+        <div formArrayName="commonErrors">
+          <div
+            *ngFor="let commonError of commonErrorForms.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Common Error URL"
+                formControlName="CommonErrorUrl"
+                value="i.e. https://medium.com/air-bnb/story"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteCommonError()">Delete</button>
+          </div>
+        </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addCommonError()">
+          Add a Common Error
+        </button>
+        <br />
+        <br />
+        <h5>Stackoverflow Posts</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+        <div formArrayName="stackoverflowPosts">
+          <div
+            *ngFor="let stackoverflowPost of stackoverflowPostForms.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Stackoverflow URL"
+                formControlName="StackoverflowPostUrl"
+                value="i.e. https://stackoverflow.com/questions/53956000/edit-update-reactive-form-using-angular-and-firebase"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteStackoverflowPost()">
+              Delete
+            </button>
+          </div>
+        </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addStackoverflowPost()">
+          Add a Stackoverflow Post
+        </button>
+        <br />
+        <br />
+        <h5>Interview Questions</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+        <div formArrayName="interviewQuestions">
+          <div
+            *ngFor="let interviewQuestion of interviewQuestionForms.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Interview Question URL"
+                formControlName="InterviewQuestionUrl"
+                value="i.e. https://stackoverflow.com/questions/53956000/edit-update-reactive-form-using-angular-and-firebase"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteInterviewQuestion()">
+              Delete
+            </button>
+          </div>
+        </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addInterviewQuestion()">
+          Add a Interview Question
+        </button>
+
+        <br />
+        <br />
+        <h5>Video Tutorials</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+        <div formArrayName="videoTutorials">
+          <div
+            *ngFor="let videoTutorial of videoTutorialForms.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Video Tutorial URL"
+                formControlName="VideoTutorialUrl"
+                value="i.e. https://stackoverflow.com/questions/53956000/edit-update-reactive-form-using-angular-and-firebase"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteVideoTutorial()">Delete</button>
+          </div>
+        </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addVideoTutorial()">
+          Add a Video Tutorial
+        </button>
+
+        <br />
+        <br />
+        <h5>Written Tutorials</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+        <div formArrayName="writtenTutorials">
+          <div
+            *ngFor="let writtenTutorial of writtenTutorialForms.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <mat-form-field class="full">
+              <input
+                matInput
+                placeholder="Written Tutorial URL"
+                formControlName="WrittenTutorialUrl"
+                value="i.e. https://stackoverflow.com/questions/53956000/edit-update-reactive-form-using-angular-and-firebase"
+                style="min-width:500px;width:auto;"
+              />
+            </mat-form-field>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteWrittenTutorial()">Delete</button>
+          </div>
+        </div>
+        <br />
+        <button mat-raised-button color="primary" (click)="addWrittenTutorial()">
+          Add a Written Tutorial
+        </button>
       </form>
     </div>
   </div>
