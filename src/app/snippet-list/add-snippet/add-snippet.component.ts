@@ -6,7 +6,6 @@ import { tap } from 'rxjs/operators';
 import { SnippetService } from '../snippet.service';
 
 import { Snippet } from '../snippet-data';
-import { Language } from './add-snippet.data';
 
 import { AuthService } from '../../core/auth.service';
 import { UidService } from '../uid-service';
@@ -20,6 +19,9 @@ export class AddSnippetComponent implements OnInit {
   text: string = '';
 
   addSnippetForm: FormGroup;
+  myDoc;
+
+  state: string;
 
   loading = false;
   success = false;
@@ -44,7 +46,6 @@ export class AddSnippetComponent implements OnInit {
   ngOnInit() {
     this.addSnippetForm = this.formBuilder.group({
       snippetTitle: ['', Validators.required],
-      language: '',
       stackblitzBeginnerUrl: '',
       stackblitzExpertUrl: '',
       stackblitzCommonPracticeUrl: '',
@@ -56,15 +57,10 @@ export class AddSnippetComponent implements OnInit {
       videoTutorials: this.formBuilder.array([]),
       writtenTutorials: this.formBuilder.array([])
     });
-    this.preloadData();
+    this.myDoc = this.angularFirestore.collection('snippets/').valueChanges();
   }
 
-  languages: Language[] = [
-    { value: 'js', viewValue: 'JavaScript' },
-    { value: 'c++', viewValue: 'C++' },
-    { value: 'ruby', viewValue: 'Ruby' }
-  ];
-
+  /////////////
   get useCaseForms() {
     return this.addSnippetForm.get('useCases') as FormArray;
   }
@@ -81,6 +77,7 @@ export class AddSnippetComponent implements OnInit {
     this.useCaseForms.removeAt(i);
   }
 
+  //////////
   get commonErrorForms() {
     return this.addSnippetForm.get('commonErrors') as FormArray;
   }
@@ -184,7 +181,7 @@ export class AddSnippetComponent implements OnInit {
     const formValue = this.addSnippetForm.value;
 
     try {
-      await this.angularFirestore.collection('snippets').add(formValue);
+      await this.angularFirestore.collection('snippets/').add(formValue);
       this.success = true;
     } catch (error) {
       console.error(error);
@@ -203,5 +200,9 @@ export class AddSnippetComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+  changeHandler(error) {
+    console.log(error);
+    this.state = error;
   }
 }

@@ -9,14 +9,40 @@
       </p>
       <br />
 
+      <!-- <div [ngSwitch]="state || null"> -->
+      <div *ngIf="state === 'synced'" class="notification is-success">
+        Form is synced with Firestore
+      </div>
+
+      <div *ngIf="state === 'modified'" class="notification is-warning">
+        Form has unsaved changes
+      </div>
+      <!-- Getting an ERROR Error: ExpressionChangedAfterItHasBeenCheckedError -->
+      <div *ngIf="state === 'loading'" class="notification is-info">Form data is preloading</div>
+      <div *ngIf="state === 'error'" class="notification is-danger">
+        Form tried and failed to save to Firestore
+      </div>
+      <!-- </div> -->
+
+      <hr />
+
+      <br />
+
       <h3>Snippet</h3>
       Form Data: {{ addSnippetForm.value | json }}
+
+      <br />
+      <h3>Firestore Data</h3>
+      <br />
+      {{ myDoc | async | json }}
 
       <hr />
       <form
         [formGroup]="addSnippetForm"
         [hidden]="success"
-        (ngSubmit)="submitAddSnippetCollectionForm()"
+        fireForm
+        path="snippets"
+        (stateChange)="changeHandler($event)"
       >
         <mat-form-field class="full">
           <input
@@ -30,14 +56,6 @@
         <br />
         <br />
 
-        <mat-form-field>
-          <mat-select placeholder="Choose Language">
-            <mat-option *ngFor="let language of languages" [value]="language.value">
-              {{ language.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
         <p>Beginner Snippet</p>
         <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
         <br />
@@ -50,7 +68,6 @@
             style="min-width:500px;width:auto;"
           />
         </mat-form-field>
-        <!-- https://stackblitz.com/edit/angular-czmxfp -->
         <br />
         <br />
 
@@ -276,7 +293,7 @@
                 matInput
                 placeholder="Written Tutorial URL"
                 formControlName="WrittenTutorialUrl"
-                value="i.e. https://stackoverflow.com/questions/53956000/edit-update-reactive-form-using-angular-and-firebase"
+                value="i.e. https://alligator.io/angular/angular-material-2/"
                 style="min-width:500px;width:auto;"
               />
             </mat-form-field>
@@ -291,8 +308,17 @@
 
         <br />
         <br />
-        <button mat-button color="primary" type="submit" [disabled]="addSnippetForm.invalid">
-          Submit
+
+        <hr />
+        Fireform state: {{ state }} <br />
+        <hr />
+
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="addSnippetForm || state !== 'modified'"
+        >
+          Save
         </button>
       </form>
       <div *ngIf="success" class="notification is-success">Yay! Your post is live.</div>
