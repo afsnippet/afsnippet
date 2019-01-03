@@ -9,9 +9,15 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { firebaseConfig } from '../../environments/firebaseConfig';
 
-//import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+import { CovalentCodeEditorModule } from '@covalent/code-editor';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+
+import { AstViewerComponent } from './ast-viewer/ast-viewer.component';
+// import { NodeEqualsToPipe } from '../utils/ast-utils';
+import { NodeItemComponent } from './node-item/node-item.component';
+import { ScrollIntoViewDirective } from '../directives/scroll-into-view.directive';
+
 import { CoreModule } from '../core/core.module';
-import { AceEditorModule } from 'ng2-ace-editor';
 
 import { SnippetService } from './snippet.service';
 
@@ -21,8 +27,16 @@ import { FireFormDirective } from '../directives/fire-form.directive';
 
 import { SnippetListComponent } from './snippet-list.component';
 import { AddSnippetComponent } from './add-snippet/add-snippet.component';
+
 @NgModule({
-  declarations: [SnippetListComponent, AddSnippetComponent, FireFormDirective],
+  declarations: [
+    SnippetListComponent,
+    AddSnippetComponent,
+    FireFormDirective,
+    AstViewerComponent,
+    ScrollIntoViewDirective,
+    NodeItemComponent
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -31,15 +45,15 @@ import { AddSnippetComponent } from './add-snippet/add-snippet.component';
     BrowserAnimationsModule,
     MaterialModule,
     CoreModule,
-    //HighlightJsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AceEditorModule
+    CovalentCodeEditorModule,
+    CodemirrorModule
+    // NodeEqualsToPipe
   ],
   exports: [SnippetListComponent],
   providers: [SnippetService],
-  //providers: [HighlightJsService, SnippetService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SnippetModule {}

@@ -2,10 +2,46 @@
   <div class="row">
     <div class="col-12">
       <br />
+      <header>
+        <h2 class="mat-h2">TSQuery Playground</h2>
+        <div class="flex-spacer"></div>
+      </header>
+      <mat-form-field class="query-input">
+        <input
+          matInput
+          (input)="updateQuery($event.target.value)"
+          [value]="query"
+          placeholder="AST Query:"
+        />
+        <mat-hint class="error-message" *ngIf="selectorError">{{ selectorError }}</mat-hint>
+      </mat-form-field>
+      <div class="split-view">
+        <div class="mat-elevation-z3">
+          <h3 class="mat-h3">Code</h3>
+          <ngx-codemirror
+            #codeEditor
+            [(ngModel)]="sourceCode"
+            [options]="codemirrorOptions"
+            (focusChange)="runQuery()"
+            (cursorActivity)="cursorMoved()"
+          >
+          </ngx-codemirror>
+        </div>
+        <div class="spacer"></div>
+        <div class="mat-elevation-z3">
+          <h3 class="mat-h3">AST</h3>
+          <app-ast-viewer
+            [ast]="ast"
+            [highlightNode]="activeNode"
+            (nodeSelected)="activateNode($event)"
+          ></app-ast-viewer>
+        </div>
+      </div>
+      <br />
       <h2><strong>Add a Snippet Collection</strong></h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam.
+        labore et dolore magna aliqua.
       </p>
       <br />
 
@@ -28,13 +64,9 @@
 
       <br />
 
-      <h3>Snippet</h3>
       Form Data: {{ addSnippetForm.value | json }}
 
       <br />
-      <h3>Firestore Data</h3>
-      <br />
-      {{ myDoc | async | json }}
 
       <hr />
       <form
@@ -44,59 +76,75 @@
         path="snippets"
         (stateChange)="changeHandler($event)"
       >
-        <mat-form-field class="full">
+        <mat-form-field class="full-width">
           <input
             matInput
-            placeholder="Snippet Collection Title"
-            value="My Snippet Collection Title"
+            #message
+            maxlength="500"
+            placeholder="Title"
             formControlName="snippetTitle"
-            style="min-width:500px;width:auto;"
           />
+          <mat-hint align="start"><strong>i.e. Reactive Forms in Angular 7</strong> </mat-hint>
+          <mat-hint align="end">{{ message.value.length }} / 500</mat-hint>
         </mat-form-field>
         <br />
         <br />
 
-        <p>Beginner Snippet</p>
-        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <p>Beginner</p>
+        <td-code-editor
+          style="height: 200px"
+          theme="vs"
+          flex
+          language="javascript"
+          formControlName="beginnerSnippet"
+          value=""
+        ></td-code-editor>
         <br />
-        <mat-form-field class="full">
-          <input
-            matInput
-            placeholder="Beginner Demo URL"
-            formControlName="stackblitzBeginnerUrl"
-            value="i.e. https://stackblitz.com/edit/angular-lirkte"
-            style="min-width:500px;width:auto;"
-          />
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Beginner Demo URL" formControlName="stackblitzBeginnerUrl" />
+          <mat-hint align="start"
+            ><strong>i.e. https://stackblitz.com/edit/angular-lirkte</strong>
+          </mat-hint>
         </mat-form-field>
         <br />
         <br />
 
-        <p>Expert Snippet</p>
-        <ace-editor [(text)]="text" style="height:150px;"></ace-editor>
+        <p>Expert</p>
+        <td-code-editor
+          style="height: 200px"
+          theme="vs"
+          flex
+          language="javascript"
+          formControlName="expertSnippet"
+        ></td-code-editor>
         <br />
-        <mat-form-field class="full">
-          <input
-            matInput
-            placeholder="Expert Demo URL"
-            formControlName="stackblitzExpertUrl"
-            value="i.e. https://stackblitz.com/edit/angular-lirkte"
-            style="min-width:500px;width:auto;"
-          />
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Expert Demo URL" formControlName="stackblitzExpertUrl" />
+          <mat-hint align="start"
+            ><strong>i.e. https://stackblitz.com/edit/angular-lirkte</strong>
+          </mat-hint>
         </mat-form-field>
         <br />
         <br />
 
-        <p>Common Practice Snippet</p>
-        <ace-editor [(text)]="text" style="min-height:150px; min-width:150px;"></ace-editor>
+        <p>Common Practice</p>
+        <td-code-editor
+          style="height: 200px"
+          theme="vs"
+          flex
+          language="javascript"
+          formControlName="commonSnippet"
+        ></td-code-editor>
         <br />
-        <mat-form-field class="full">
+        <mat-form-field class="full-width">
           <input
             matInput
             placeholder="Common Practice Demo URL"
             formControlName="stackblitzCommonPracticeUrl"
-            value="i.e. https://stackblitz.com/edit/angular-lirkte"
-            style="min-width:500px;width:auto;"
           />
+          <mat-hint align="start"
+            ><strong>i.e. https://stackblitz.com/edit/angular-lirkte</strong>
+          </mat-hint>
         </mat-form-field>
         <br />
         <br />
@@ -104,25 +152,23 @@
         <h3>Versioning</h3>
         <hr />
         <p>
-          List all programming languages and frameworks including their specific version numbers
-          (please do not put "latest" as the verison number.).
+          List programming language, technology and frameworks including their specific version
+          numbers (please do not put "latest" as the verison number.).
         </p>
         <div formArrayName="versions">
           <div *ngFor="let version of versionForms.controls; let i = index" [formGroupName]="i">
             <mat-form-field class="xs">
-              <input
-                matInput
-                placeholder="Technology"
-                formControlName="technology"
-                value="i.e. Angular"
-              />
+              <input matInput placeholder="Technology" formControlName="technology" />
+              <mat-hint align="start"><strong>i.e. Angular</strong> </mat-hint>
             </mat-form-field>
-
+            &nbsp;
             <mat-form-field class="xs">
-              <input matInput placeholder="Version" formControlName="version" value="i.e. 7.0.1" />
+              <input matInput placeholder="Version" formControlName="version" />
+              <mat-hint align="start"><strong>i.e. 7.0.1</strong> </mat-hint>
             </mat-form-field>
             <br />
-            <button mat-raised-button color="warn" (click)="deleteVersion()">Delete</button>
+            <br />
+            <button mat-raised-button color="warn" (click)="deleteVersion()">Delete</button> <br />
           </div>
         </div>
         <br />
@@ -149,7 +195,7 @@
               />
             </mat-form-field>
             <br />
-            <button mat-raised-button color="warn" (click)="deleteUseCase()">Delete</button>
+            <button mat-raised-button color="warn" (click)="deleteUseCase()">Delete</button> <br />
           </div>
         </div>
         <br />
@@ -177,6 +223,7 @@
             </mat-form-field>
             <br />
             <button mat-raised-button color="warn" (click)="deleteCommonError()">Delete</button>
+            <br />
           </div>
         </div>
         <br />
@@ -208,6 +255,7 @@
             <button mat-raised-button color="warn" (click)="deleteStackoverflowPost()">
               Delete
             </button>
+            <br />
           </div>
         </div>
         <br />
@@ -239,6 +287,7 @@
             <button mat-raised-button color="warn" (click)="deleteInterviewQuestion()">
               Delete
             </button>
+            <br />
           </div>
         </div>
         <br />
@@ -269,6 +318,7 @@
             </mat-form-field>
             <br />
             <button mat-raised-button color="warn" (click)="deleteVideoTutorial()">Delete</button>
+            <br />
           </div>
         </div>
         <br />
@@ -299,6 +349,7 @@
             </mat-form-field>
             <br />
             <button mat-raised-button color="warn" (click)="deleteWrittenTutorial()">Delete</button>
+            <br />
           </div>
         </div>
         <br />

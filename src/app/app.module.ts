@@ -5,24 +5,33 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { firebaseConfig } from '../environments/firebaseConfig';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireModule } from '@angular/fire';
+
+import { CovalentCodeEditorModule } from '@covalent/code-editor';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/markdown/markdown';
+
+import { AstViewerComponent } from './snippets/ast-viewer/ast-viewer.component';
+import { NodeEqualsToPipe } from './utils/node-equals-to.pipe';
+import { NodeItemComponent } from './snippets/node-item/node-item.component';
+import { ScrollIntoViewDirective } from './directives/scroll-into-view.directive';
+
 import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AceEditorModule } from 'ng2-ace-editor';
 
-import { SnippetModule } from './snippet-list/snippet.module';
+import { SnippetModule } from './snippets/snippet.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { AccountModule } from './account/account.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 
-import { UidService } from './snippet-list/uid-service';
-
-import { firebaseConfig } from '../environments/firebaseConfig';
-import { AngularFireStorageModule } from 'angularfire2/storage';
-import { AngularFireModule } from '@angular/fire';
+import { UidService } from './snippets/uid-service';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -43,7 +52,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
     DashboardComponent,
     PageNotFoundComponent,
     SearchComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    AstViewerComponent,
+    ScrollIntoViewDirective,
+    NodeEqualsToPipe,
+    NodeItemComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +75,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     SidebarModule,
     AccountModule,
     DashboardModule,
-    AceEditorModule
+    CovalentCodeEditorModule,
+    CodemirrorModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],

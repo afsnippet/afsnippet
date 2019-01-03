@@ -5,7 +5,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
-import { Snippet } from './snippet-data';
+import { Snippet } from './snippet.data';
 import { UidService } from './uid-service';
 import { AuthService } from '../core/auth.service';
 import { UUID } from 'angular2-uuid';
@@ -55,10 +55,7 @@ export class SnippetService {
     this.snippetDoc = this.firestore.doc('snippets/' + snippet.uid);
     this.snippetDoc
       .delete()
-      .then(
-        () => console.log('success snippet DELETED'),
-        err => console.log('Error ', err)
-      );
+      .then(() => console.log('success snippet DELETED'), err => console.log('Error ', err));
   }
 
   updateSnippet(snippet: Snippet) {
@@ -67,10 +64,7 @@ export class SnippetService {
     this.snippetDoc = this.firestore.doc('snippets/' + snippet.uid);
     this.snippetDoc
       .update(snippetToSave)
-      .then(
-        () => console.log('success snippet UPDATED'),
-        err => console.log('Error ', err)
-      );
+      .then(() => console.log('success snippet UPDATED'), err => console.log('Error ', err));
   }
 
   createSnippetId() {

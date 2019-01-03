@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AccountComponent } from './account/account.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { AddSnippetComponent } from './snippet-list/add-snippet/add-snippet.component';
+import { AddSnippetComponent } from './snippets/add-snippet/add-snippet.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

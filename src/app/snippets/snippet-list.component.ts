@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetService } from './snippet.service';
-import { Snippet } from './snippet-data';
+import { Snippet } from './snippet.data';
 
 @Component({
   selector: 'app-snippet-list',
@@ -8,13 +8,11 @@ import { Snippet } from './snippet-data';
   styleUrls: ['./snippet-list.component.css']
 })
 export class SnippetListComponent implements OnInit {
-
   items: Snippet[];
   editState: boolean;
   itemToEdit: Snippet;
 
-  constructor(private snippetService: SnippetService) {
-  }
+  constructor(private snippetService: SnippetService) {}
 
   ngOnInit() {
     this.snippetService.getSnippets().subscribe(items => {
@@ -42,5 +40,4 @@ export class SnippetListComponent implements OnInit {
     this.editState = false;
     this.itemToEdit = null;
   }
-
 }
