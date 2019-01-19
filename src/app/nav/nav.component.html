@@ -10,7 +10,7 @@
       <li class="nav-item mr-4"><a routerLink="/add-snippet">Add Snippet</a></li>
       <li class="nav-item mr-4"><a routerLink="/account">Account</a></li>
       <li class="nav-item">
-        <a><button (click)="auth.signOut()" *ngIf="(auth.user | async)">Sign Out</button></a>
+        <button (click)="signOut()" *ngIf="( user | async )">Sign Out</button>
       </li>
     </ul>
   </div>
