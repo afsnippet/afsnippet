@@ -74,16 +74,11 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": ["src/styles.css"],
-            "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@covalent/code-editor/assets/monaco",
-                "output": "/assets/monaco"
-              }
-            ]
+            "scripts": [
+              "../node_modules/ace-builds/src-min/ace.js",
+              "../node_modules/ace-builds/src-min/theme-eclipse.js"
+            ],
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {

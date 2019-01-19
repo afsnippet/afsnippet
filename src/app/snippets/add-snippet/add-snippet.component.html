@@ -2,42 +2,6 @@
   <div class="row">
     <div class="col-12">
       <br />
-      <header>
-        <h2 class="mat-h2">TSQuery Playground</h2>
-        <div class="flex-spacer"></div>
-      </header>
-      <mat-form-field class="query-input">
-        <input
-          matInput
-          (input)="updateQuery($event.target.value)"
-          [value]="query"
-          placeholder="AST Query:"
-        />
-        <mat-hint class="error-message" *ngIf="selectorError">{{ selectorError }}</mat-hint>
-      </mat-form-field>
-      <div class="split-view">
-        <div class="mat-elevation-z3">
-          <h3 class="mat-h3">Code</h3>
-          <ngx-codemirror
-            #codeEditor
-            [(ngModel)]="sourceCode"
-            [options]="codemirrorOptions"
-            (focusChange)="runQuery()"
-            (cursorActivity)="cursorMoved()"
-          >
-          </ngx-codemirror>
-        </div>
-        <div class="spacer"></div>
-        <div class="mat-elevation-z3">
-          <h3 class="mat-h3">AST</h3>
-          <app-ast-viewer
-            [ast]="ast"
-            [highlightNode]="activeNode"
-            (nodeSelected)="activateNode($event)"
-          ></app-ast-viewer>
-        </div>
-      </div>
-      <br />
       <h2><strong>Add a Snippet Collection</strong></h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -91,14 +55,19 @@
         <br />
 
         <p>Beginner</p>
-        <td-code-editor
-          style="height: 200px"
-          theme="vs"
-          flex
-          language="javascript"
-          formControlName="beginnerSnippet"
-          value=""
-        ></td-code-editor>
+        <div
+          ace-editor
+          [(text)]="beginnerSnippet"
+          [mode]="'javascript'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"
+        ></div>
+
         <br />
         <mat-form-field class="full-width">
           <input matInput placeholder="Beginner Demo URL" formControlName="stackblitzBeginnerUrl" />
@@ -110,13 +79,18 @@
         <br />
 
         <p>Expert</p>
-        <td-code-editor
-          style="height: 200px"
-          theme="vs"
-          flex
-          language="javascript"
-          formControlName="expertSnippet"
-        ></td-code-editor>
+        <div
+          ace-editor
+          [(text)]="expertSnippet"
+          [mode]="'javascript'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"
+        ></div>
         <br />
         <mat-form-field class="full-width">
           <input matInput placeholder="Expert Demo URL" formControlName="stackblitzExpertUrl" />
@@ -128,13 +102,18 @@
         <br />
 
         <p>Common Practice</p>
-        <td-code-editor
-          style="height: 200px"
-          theme="vs"
-          flex
-          language="javascript"
-          formControlName="commonSnippet"
-        ></td-code-editor>
+        <div
+          ace-editor
+          [(text)]="commonSnippet"
+          [mode]="'javascript'"
+          [theme]="'eclipse'"
+          [options]="options"
+          [readOnly]="false"
+          [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000"
+          (textChanged)="onChange($event)"
+          style="min-height: 200px; width:100%; overflow: auto;"
+        ></div>
         <br />
         <mat-form-field class="full-width">
           <input

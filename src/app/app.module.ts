@@ -9,16 +9,6 @@ import { firebaseConfig } from '../environments/firebaseConfig';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from '@angular/fire';
 
-import { CovalentCodeEditorModule } from '@covalent/code-editor';
-import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/markdown/markdown';
-
-import { AstViewerComponent } from './snippets/ast-viewer/ast-viewer.component';
-import { NodeEqualsToPipe } from './utils/node-equals-to.pipe';
-import { NodeItemComponent } from './snippets/node-item/node-item.component';
-import { ScrollIntoViewDirective } from './directives/scroll-into-view.directive';
-
 import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,11 +42,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     DashboardComponent,
     PageNotFoundComponent,
     SearchComponent,
-    AboutUsComponent,
-    AstViewerComponent,
-    ScrollIntoViewDirective,
-    NodeEqualsToPipe,
-    NodeItemComponent
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +60,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     SnippetModule,
     SidebarModule,
     AccountModule,
-    DashboardModule,
-    CovalentCodeEditorModule,
-    CodemirrorModule
+    DashboardModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],
