@@ -3,48 +3,72 @@
     <div class="col-sm-8">
       <div *ngIf="items?.length > 0; else noItems">
         <div *ngFor="let item of items" class="collection">
-          <p>{{ item.snippetId }}</p>
-          <p>{{ item.snippetText }}</p>
-          <p>{{ item.snippetCreatedDate | date: 'fullDate' }}</p>
+          <mat-card>
+            <mat-card-title>
+              <p>{{ item.snippetTitle }}</p>
+            </mat-card-title>
+            <mat-card-content>
+              <p>Beginner<br />{{ item.beginnerSnippet }}</p>
+              <p>Beginner URL<br />{{ item.stackblitzBeginnerUrl || null }}</p>
+              <p>Expert<br />{{ item.expertSnippet }}</p>
+              <p>Expert URL<br />{{ item.stackblitzExpertUrl || null }}</p>
+              <p>Common Practice<br />{{ item.commonSnippet }}</p>
+              <p>Common Practice URL<br />{{ item.stackblitzCommonPracticeUrl || null }}</p>
+              <p>Version<br />{{ item.versions }}</p>
+              <br />
+              <mat-card-subtitle>Related Resources</mat-card-subtitle>
+              <p>Use Cases<br />{{ item.useCases || null }}</p>
+              <p>Common Errors<br />{{ item.commonErrors || null }}</p>
+              <p>Stackoverflow<br />{{ item.stackoverflowPosts || null }}</p>
+              <p>Interview Questions<br />{{ item.interviewQuestions || null }}</p>
+              <p>Video Tutorials<br />{{ item.videoTutorials || null }}</p>
+              <p>Written Tutorials<br />{{ item.writtenTutorials || null }}</p>
+              <p>Created<br />{{ item.snippetCreatedDate | date: 'fullDate' }}</p>
+              <p>Last Updated<br />{{ item.snippetUpdateddDate | date: 'fullDate' }}</p>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-card-actions>
+                <button mat-button>LIKE</button> <button mat-button>SHARE</button>
+              </mat-card-actions>
+              <a>
+                <span (click)="editSnippet($event, item)">
+                  <i class="fas fa-edit" color="accent"></i>
+                </span>
+                <i
+                  *ngIf="editState && itemToEdit.snippetId == item.snippetId"
+                  (click)="clearState()"
+                ></i>
+              </a>
 
-          <a>
-            <span (click)="editSnippet($event, item)">
-              <i class="fas fa-edit" color="accent"></i>
-            </span>
-            <i
-              *ngIf="editState && itemToEdit.snippetId == item.snippetId"
-              (click)="clearState()"
-            ></i>
-          </a>
-
-          <a>
-            <span (click)="deleteSnippet($event, item)">
-              <i class="fas fa-trash-alt" style="color:#FF0000;"></i>
-            </span>
-            <i
-              *ngIf="editState && itemToEdit.snippetId == item.snippetId"
-              (click)="clearState()"
-            ></i>
-          </a>
-          <div *ngIf="editState && itemToEdit.snippetId == item.snippetId">
-            <form (ngSubmit)="updateSnippet(item)">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input type="text" [(ngModel)]="item.snippetText" name="Snippet Text" />
+              <a>
+                <span (click)="deleteSnippet($event, item)">
+                  <i class="fas fa-trash-alt" style="color:#FF0000;"></i>
+                </span>
+                <i
+                  *ngIf="editState && itemToEdit.snippetId == item.snippetId"
+                  (click)="clearState()"
+                ></i>
+              </a>
+            </mat-card-footer>
+            <div *ngIf="editState && itemToEdit.snippetId == item.snippetId">
+              <form (ngSubmit)="updateSnippet(item)">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input type="text" [(ngModel)]="item.snippetText" name="Snippet Text" />
+                  </div>
+                  <div class="input-field col s6">
+                    <input
+                      type="text"
+                      [(ngModel)]="item.snippetCreatedDate"
+                      name="Snippet Created Date"
+                    />
+                  </div>
+                  <div class="input-field col s6"><input type="submit" value="Update" /></div>
                 </div>
-                <div class="input-field col s6">
-                  <input
-                    type="text"
-                    [(ngModel)]="item.snippetCreatedDate"
-                    name="Snippet Created Date"
-                  />
-                </div>
-                <div class="input-field col s6"><input type="submit" value="Update" /></div>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          </mat-card>
         </div>
-
         <mat-paginator
           #paginator
           [length]="5"

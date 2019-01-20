@@ -21,17 +21,19 @@ export class SnippetListComponent implements OnInit {
   }
 
   deleteSnippet(event, item: Snippet) {
-    console.log('SNIPPET DELETED');
+    console.log('Snippet DELETED');
     this.clearState();
     this.snippetService.deleteSnippet(item);
   }
 
   editSnippet(event, item: Snippet) {
+    console.log('Snippet EDITED');
     this.editState = true;
     this.itemToEdit = item;
   }
 
   updateSnippet(item: Snippet) {
+    console.log('Snippet UPDATED');
     this.snippetService.updateSnippet(item);
     this.clearState();
   }

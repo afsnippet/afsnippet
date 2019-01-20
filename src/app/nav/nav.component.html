@@ -1,15 +1,10 @@
-<!-- <mat-toolbar color="primary" class="nav">
-  <mat-toolbar-row>
-    <span class="toolbar-title">Logo</span>
-    <span ml-6 class="nav-link" routerLink="/about-us">About Us</span>
-  </mat-toolbar-row>
-</mat-toolbar> -->
-
 <mat-toolbar color="primary">
   <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
-
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
+  <button mat-button routerLink="/add-snippet">
+    <i class="material-icons"> add_circle_outline </i> Add a Snippet Collection
+  </button>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/About">About</button>
     <button mat-button routerLink="/dashboard">Dashboard</button>

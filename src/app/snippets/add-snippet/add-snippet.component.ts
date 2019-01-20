@@ -24,6 +24,7 @@ export class AddSnippetComponent implements OnInit {
 
   addSnippetForm: FormGroup;
   myDoc;
+  snippetCreatedDate = new Date();
 
   state: string;
 
@@ -57,7 +58,8 @@ export class AddSnippetComponent implements OnInit {
       stackoverflowPosts: this.formBuilder.array([]),
       interviewQuestions: this.formBuilder.array([]),
       videoTutorials: this.formBuilder.array([]),
-      writtenTutorials: this.formBuilder.array([])
+      writtenTutorials: this.formBuilder.array([]),
+      snippetCreatedDate: new Date()
     });
     this.myDoc = this.angularFirestore.collection('snippets/').valueChanges();
   }
