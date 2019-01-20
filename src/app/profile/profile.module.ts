@@ -8,4 +8,4 @@ import { ProfileComponent } from './profile.component';
   imports: [CommonModule],
   declarations: [ProfileComponent, MembersComponent]
 })
-export class AccountModule {}
+export class ProfileModule {}

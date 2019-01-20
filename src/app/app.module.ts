@@ -19,9 +19,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { SnippetModule } from './snippets/snippet.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { AccountModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
+import { ProfileModule } from './profile/profile.module';
 
 import { UidService } from './snippets/uid-service';
 
@@ -61,9 +61,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AngularFireModule.initializeApp(firebaseConfig),
     SnippetModule,
     SidebarModule,
-    AccountModule,
     DashboardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ProfileModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],
