@@ -21,7 +21,7 @@ import { SnippetModule } from './snippets/snippet.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
-import { ProfileModule } from './profile/profile.module';
+import { AccountModule } from './account/account.module';
 
 import { UidService } from './snippets/uid-service';
 
@@ -63,7 +63,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     SidebarModule,
     DashboardModule,
     FlexLayoutModule,
-    ProfileModule
+    AccountModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],

@@ -19,16 +19,18 @@ import { MaterialModule } from '../material.module';
 
 import { FireFormDirective } from '../directives/fire-form.directive';
 
-import { SnippetListComponent } from './snippet-list.component';
+import { SnippetListComponent } from './snippet-list/snippet-list.component';
 import { AddSnippetComponent } from './add-snippet/add-snippet.component';
 
 import { AceEditorModule } from 'ng2-ace-editor';
+import { AceEditorComponent } from './ace-editor/ace-editor.component';
 @NgModule({
   declarations: [
     SnippetListComponent,
     AddSnippetComponent,
     FireFormDirective,
-    ScrollIntoViewDirective
+    ScrollIntoViewDirective,
+    AceEditorComponent
   ],
   imports: [
     BrowserModule,

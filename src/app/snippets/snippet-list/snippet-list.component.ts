@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SnippetService } from './snippet.service';
-import { Snippet } from './snippet.data';
+import { SnippetService } from '../snippet.service';
+import { Snippet } from '../snippet.data';
 
 @Component({
   selector: 'app-snippet-list',

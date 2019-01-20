@@ -1,0 +1,12 @@
+<div
+  ace-editor
+  (textChange)="onTextChange($event)"
+  (textChanged)="onTextChanged($event)"
+  [text]="value"
+  [mode]="mode"
+  [theme]="theme"
+  [readOnly]="readOnly"
+  [autoUpdateContent]="autoUpdateContent"
+  [durationBeforeCallback]="durationBeforeCallback"
+  style="min-height: 200px; width:100%; overflow: auto;"
+></div>
