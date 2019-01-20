@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthService, User } from '../core/auth.service';
 import { Observable } from 'rxjs';
 
@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  @Output() toggleSidenav = new EventEmitter<void>();
 
   user: Observable<User>;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService) {}
 
   ngOnInit() {
     this.user = this.auth.user;
@@ -20,5 +21,4 @@ export class NavComponent implements OnInit {
   signOut() {
     this.auth.signOut();
   }
-
 }

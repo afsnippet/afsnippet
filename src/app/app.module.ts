@@ -11,6 +11,8 @@ import { AngularFireModule } from '@angular/fire';
 
 import { MaterialModule } from './material.module';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -60,7 +62,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     SnippetModule,
     SidebarModule,
     AccountModule,
-    DashboardModule
+    DashboardModule,
+    FlexLayoutModule
   ],
   providers: [UidService],
   bootstrap: [AppComponent],

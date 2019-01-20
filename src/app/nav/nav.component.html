@@ -1,17 +1,27 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"><a class="nav-link" href="#">af-snippet</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/about-us">About Us</a></li>
-    </ul>
+<!-- <mat-toolbar color="primary" class="nav">
+  <mat-toolbar-row>
+    <span class="toolbar-title">Logo</span>
+    <span ml-6 class="nav-link" routerLink="/about-us">About Us</span>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/About">About</button>
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/account">Account</button>
   </div>
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item mr-4"><a routerLink="/add-snippet">Add Snippet</a></li>
-      <li class="nav-item mr-4"><a routerLink="/account">Account</a></li>
-      <li class="nav-item">
-        <button (click)="signOut()" *ngIf="( user | async )">Sign Out</button>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item routerLink="/about-us">About</button>
+  <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+  <button mat-menu-item routerLink="/account">Account</button>
+  <button mat-menu-item (click)="signOut()" *ngIf="(user | async)">Sign Out</button>
+</mat-menu>
