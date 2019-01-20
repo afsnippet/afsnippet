@@ -1,19 +1,14 @@
 <div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+  <h3>Please Log in to continue</h3>
 
-  <h3>Login</h3>
-
-    <button (click)="signInWithGoogle()">
-      <i class="fab fa-google"></i> Connect Google
-    </button>
-
-    <button (click)="signInWithGithub()" disabled>
-      <i class="fab fa-github"></i> Coming Soon - Connect GitHub
-    </button>
-
+  <mat-raised-button (click)="signInWithGoogle()">
+    <i class="fab fa-google"></i> Connect Google
+  </mat-raised-button>
+  <br />
+  <br />
+  <mat-raised-button (click)="signInWithGithub()" disabled>
+    <i class="fab fa-github"></i> Coming Soon - Connect with GitHub
+  </mat-raised-button>
 </div>
 
-<ng-template #alreadyLoggedIn>
-  <p class="text-success">
-    You're already logged in!
-  </p>
-</ng-template>
+<ng-template #alreadyLoggedIn> <p>You're Logged in!</p> </ng-template>
