@@ -13,7 +13,7 @@
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/About">About</button>
     <button mat-button routerLink="/dashboard">Dashboard</button>
-    <button mat-button routerLink="/account">Account</button>
+    <button mat-button routerLink="/profile">Profile</button>
   </div>
   <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
     <mat-icon>menu</mat-icon>
@@ -22,6 +22,6 @@
 <mat-menu x-position="before" #menu="matMenu">
   <button mat-menu-item routerLink="/about-us">About</button>
   <button mat-menu-item routerLink="/dashboard">Dashboard</button>
-  <button mat-menu-item routerLink="/account">Account</button>
+  <button mat-menu-item routerLink="/profile">Profile</button>
   <button mat-menu-item (click)="signOut()" *ngIf="(user | async)">Sign Out</button>
 </mat-menu>

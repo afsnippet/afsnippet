@@ -19,7 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { SnippetModule } from './snippets/snippet.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { AccountModule } from './account/account.module';
+import { AccountModule } from './profile/profile.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 
